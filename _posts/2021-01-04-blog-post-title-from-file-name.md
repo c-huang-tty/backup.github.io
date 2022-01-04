@@ -25,7 +25,7 @@ int main() {
 }
 ```
 
-However, there is a problem here. When I define a `local variable` with the same name as the `global variable`, the `global variable` will be overridden by the `local variable`. For example, if I define the `global variable` again in the `main` function and then call `funtion1` and `function2`, the `cout` result would be `2` and `2` respectively. 
+However, there is a problem here. When I define a `local variable` with the same name as the `global variable`, the `global variable` will be overridden by the `local variable`. For example, if I define the `globalVariable` again in the `main` function and then call `funtion1` and `function2`, the `cout` result would be `2` and `2` respectively. 
 ```C++
 int main () {
     int globalVariable = 2;
