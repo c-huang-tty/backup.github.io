@@ -120,4 +120,10 @@ int main() {
 
 ---
 
-
+<script src="https://utteranc.es/client.js"
+        repo="c-huang-tty/c-huang-tty.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
