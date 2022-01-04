@@ -119,11 +119,3 @@ int main() {
 [//]: <> (Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.)
 
 ---
-
-<script src="https://utteranc.es/client.js"
-        repo="c-huang-tty/c-huang-tty.github.io"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
