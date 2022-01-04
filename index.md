@@ -1,5 +1,1 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Here I will note donw the problems I encountered in my research and the solutions to keep record of my research progress.
