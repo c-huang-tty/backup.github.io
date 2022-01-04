@@ -1,6 +1,6 @@
 ## Data Sharing in C++ [01]: Between Functions Within A File
 
-The simplest way to share data between different functions within a file is to simply declare a `global variables`.
+The simplest way to share data between different functions within a file is to simply declare `global variables`.
 
 [//]: <> (Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.
 
