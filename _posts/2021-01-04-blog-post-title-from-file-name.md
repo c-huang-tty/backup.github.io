@@ -36,7 +36,7 @@ int main () {
     system("pause > 0");
 }
 ```
-To solve this problem, two simple methods are available. We can either define a `namespace`to include the global variable, or we can shadow the local variable using `extern` declaration.
+To solve this problem, two simple methods are available. We can either define a `namespace` to include the global variable, or we can shadow the local variable using `extern` declaration.
 
 ---
 ### namespace
