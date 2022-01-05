@@ -4,7 +4,7 @@
 The simplest way to share data between different functions within a file is to simply declare `global variables` on top of the program.
 
 For example, if I define a global variable named `globalVariable` and two functions named `funtion1` and `function2` and call them in the `main` function, the `cout` result would be `1` and `0` respectively. 
-```C++
+```cpp
 int globalVariable = 0;
 
 void function1() {
@@ -15,7 +15,7 @@ void function2() {
     globalVariable -= 1;
 }
 ```
-```C++
+```cpp
 int main() {
     function1();
     cout << globalVariable << endl;
@@ -26,7 +26,7 @@ int main() {
 ```
 
 However, there is a problem here. When I define a `local variable` with the same name as the `global variable`, the `global variable` will be overridden by the `local variable`. For example, if I define the `globalVariable` again in the `main` function and then call `funtion1` and `function2`, the `cout` result would be `2` and `2` respectively. 
-```C++
+```cpp
 int main () {
     int globalVariable = 2;
     function1();
@@ -41,7 +41,7 @@ To solve this problem, two simple methods are available. We can either define a 
 ---
 ### namespace
 Here I declared a `namespace` named `g`, again, the `cout` result would be `1` and `0` respectively.
-```C++
+```cpp
 namespace g{
     int globalVariable = 0;
 }
@@ -54,7 +54,7 @@ void function2() {
     g::globalVariable -= 1;
 }
 ```
-```C++
+```cpp
 int main() {
     int globalVariable = 2;
     function1();
@@ -68,7 +68,7 @@ int main() {
 ---
 ### extern
 Here I used the `extern` declaration before call `funtion1` and `function2`, again, the `cout` result would be `1` and `0` respectively. (`{` and `}` are necessary, which define the scope of the variable.)
-```C++
+```cpp
 int globalVariable = 0;
 
 void function1() {
@@ -79,7 +79,7 @@ void function2() {
     globalVariable -= 1;
 }
 ```
-```C++
+```cpp
 int main() {
     int globalVariable = 2;	
     {
@@ -96,7 +96,7 @@ int main() {
 ---
 ### static
 `static` can be very useful when we have to define a variable within a `while` loop and don't want to create and destroy it each time it comes into and goes out of scope, so that we can maintain its value between function calls. Here is a simple example, using `stepCount`, it's easy to control which part of athe code to execute. Again, the `cout` result would be `1` and `0` respectively.   
-```C++
+```cpp
 int main() {
     while(1) {
         static int stepCount = 0; 
