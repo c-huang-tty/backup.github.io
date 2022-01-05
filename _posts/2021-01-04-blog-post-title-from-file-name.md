@@ -3,7 +3,7 @@
 ### global variable
 The simplest way to share data between different functions within a file is to simply declare `global variables` on top of the program.
 
-For example, if I define a global variable `globalVariable` and two functions `funtion1` and `function2` and call them in the `main` function respectively, the `cout` result would be `1` and `0` respectively. 
+For example, if I define a global variable named `globalVariable` and two functions named `funtion1` and `function2` and call them in the `main` function, the `cout` result would be `1` and `0` respectively. 
 ```C++
 int globalVariable = 0;
 
@@ -36,7 +36,7 @@ int main () {
     system("pause > 0");
 }
 ```
-To solve this problem, two methods are available. We can either define a `namespace`to include the global variable, or we can shadow the local variable using `extern` declaration.
+To solve this problem, two simple methods are available. We can either define a `namespace`to include the global variable, or we can shadow the local variable using `extern` declaration.
 
 ---
 ### namespace
@@ -67,7 +67,7 @@ int main() {
 
 ---
 ### extern
-Here I used the `extern` declaration before call `funtion1` and `function2`, again, the `cout` result would be `1` and `0` respectively. (`{` and `}` are necessary.)
+Here I used the `extern` declaration before call `funtion1` and `function2`, again, the `cout` result would be `1` and `0` respectively. (`{` and `}` are necessary, which define the scope of the variable.)
 ```C++
 int globalVariable = 0;
 
@@ -95,7 +95,7 @@ int main() {
 
 ---
 ### static
-`static` can be very useful when we have to define a variable within a `while` loop and don't want to create and destroy it each time it comes into and goes out of scope, so that we can maintain its value between function calls. Here is a simple example, using `stepCount`, it's easy to control which part of athe code to execute. Again, the `cout` result would be `1` and `0` respectively.  
+`static` can be very useful when we have to define a variable within a `while` loop and don't want to create and destroy it each time it comes into and goes out of scope, so that we can maintain its value between function calls. Here is a simple example, using `stepCount`, it's easy to control which part of athe code to execute. Again, the `cout` result would be `1` and `0` respectively.   
 ```C++
 int main() {
     while(1) {
