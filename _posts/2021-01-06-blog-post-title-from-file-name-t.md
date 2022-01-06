@@ -1,4 +1,4 @@
-## C++ Basics [02]: Passing References \& Pointers
+## C++ Basics [02]: Passing References and Pointers
 
 Codes in this post can be found in [PassingReferencePointer.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/ReferencePointer/PassingReferencePointer.cpp)
 
