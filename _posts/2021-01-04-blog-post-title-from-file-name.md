@@ -1,6 +1,6 @@
 ## Data Sharing [C++] [01]: Between Functions Within A File
 
-Codes in this post can be found in [DataSharingBetweenFunctions.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/DataSharingBetweenFunctions.cpp?ts=4).
+Codes in this post can be found in [DataSharingBetweenFunctions.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/DataSharing/DataSharingBetweenFunctions.cpp?ts=4).
 
 ### global variable
 The simplest way to share data between different functions within a file is to simply declare `global variables` on top of the program.
