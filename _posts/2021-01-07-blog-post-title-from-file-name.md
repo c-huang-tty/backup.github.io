@@ -1,6 +1,6 @@
-## C++ Basics [02]: Passing References and Pointers
+## C++ Basics [02]: Passing and Returning References and Pointers
 
-Codes in this post can be found in [PassingReferencePointer.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/ReferencePointer/PassingReferencePointer.cpp)
+Codes in this post can be found in [PassingReferencePointer.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/ReferencePointer/PassingReferencePointer.cpp) and [ReturningReferencePointer.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/ReferencePointer/ReturningReferencePointer.cpp).
 
 ### Passing Pointers to a Function
 If a pointer is passed to a function as a parameter and tried to be modified, we will find that the value of the pointer doesn't change outside of the function. This is because only a copy of the pointer is passed to the function. This is similar to any other objects like `int`. When we pass a `int` as a parameter to a function, its value outside of the function won't be changed, as its scope is within that function. The `cout` results of the following codes would be `1` and `1` respectively. 
@@ -89,3 +89,49 @@ int main() {
 }
 ```
 
+---
+---
+Alternatively, we can also get the same results by returning `pointers` or `references` from a function. The `cout` results of both of the following codes would be `1` and `0` respectively. 
+### Returning Pointers From a Function
+```cpp
+#include <iostream>
+using namespace std;
+
+int globalVariable = 0;
+
+int* function() {
+    return &globalVariable;
+}
+int main() {
+    int val = 1;
+    int* ptr = &val;
+    cout << *ptr << endl;
+    ptr = function();
+    cout << *ptr << endl;
+    return 0;
+}
+```
+
+---
+### Returning References From a Function
+```cpp
+#include <iostream>
+using namespace std;
+
+int globalVariable = 0;
+
+int& function() {
+    return globalVariable;
+}
+int main() {
+    int val = 1;
+    int* ptr = &val;
+    cout << *ptr << endl;
+    ptr = &function();
+    cout << *ptr << endl;
+    return 0;
+}
+```
+
+
+---
