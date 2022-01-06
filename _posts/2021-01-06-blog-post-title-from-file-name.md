@@ -46,6 +46,7 @@ int main() {
 
 Alternatively, We can also define the global variables in the main file. However, it would be hard to read when we have dozens of files, with each containing a couple of global variables. Therefore, it is not recommended to define global variables in the main source file. 
 
+---
 ### struct/class
 The better alternative to global bariables is to define a **struct/class** in the header file. This can be demonstrated by `IncDec.h`, `IncDec.cpp` and main file `DataSharingBetweenFiles.cpp` modified from the above example.
 
@@ -89,3 +90,7 @@ int main() {
     cout << globalVariableStruct.data2 << endl; // -1
 }
 ```
+
+`struct` is especially useful when a group of variables are related. For example, in order to define dynamics of a vehicle, we don't need to define dozens of global variables one by one. Instead, we can define a `struct` named `vehicleDynamics`, and then include all the variables that we concern into the `struct`. It is also very flexible in that we don't need to change our code much if we want to add more variables into the structure later.
+
+---
