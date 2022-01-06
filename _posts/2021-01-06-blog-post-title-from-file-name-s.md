@@ -76,3 +76,5 @@ int *&r = p;  // r is a reference to the pointer p
 *r = 0;       // dereferencing r yields i, the object to which p points; changes i to 0
 ```
 The symbol closest to the name of the variable (in this case the `&` in `&r`) is the one that has the most immediate effect on the variable’s type. Thus, we know that `r` is a reference. The rest of the declarator determines the type to which r refers. The next symbol, `*` in this case, says that the type `r` refers to is a pointer type. Finally, the base type of the declaration says that `r` is a reference to a pointer to an `int`.
+
+---
