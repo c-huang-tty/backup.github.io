@@ -1,5 +1,7 @@
 ## Data Sharing [C++] [01]: Between Functions Within A File
 
+Codes in this post can be found in [DataSharingBetweenFunctions.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/DataSharingBetweenFunctions.cpp).
+
 ### global variable
 The simplest way to share data between different functions within a file is to simply declare `global variables` on top of the program.
 
@@ -115,6 +117,7 @@ int main() {
    return 0;
 }
 ```
+
 [//]: <> (Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.)
 
 ---
