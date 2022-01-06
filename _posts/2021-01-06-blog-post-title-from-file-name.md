@@ -1,4 +1,4 @@
-## Data Sharing [C++] [02]: Between Multiple Files
+## Data Sharing [C++] [02]: Between Files
 
 Code in this post can be found in this folder [DataSharingBetweenFiles](https://github.com/c-huang-tty/c-huang-tty.github.io/tree/main/code/cpp/DataSharing/DataSharingBetweenFiles)
 
