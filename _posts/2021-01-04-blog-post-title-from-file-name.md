@@ -242,7 +242,7 @@ int main(){
             break;
         }
     }
-	// Realease
+    // Realease
     shared_memory_object::remove("MySharedMemory");
 	
     cout << "P2 ended" << endl;
