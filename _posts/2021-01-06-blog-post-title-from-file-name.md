@@ -78,3 +78,45 @@ int *&r = p;  // r is a reference to the pointer p
 The symbol closest to the name of the variable (in this case the `&` in `&r`) is the one that has the most immediate effect on the variable’s type. Thus, we know that `r` is a reference. The rest of the declarator determines the type to which r refers. The next symbol, `*` in this case, says that the type `r` refers to is a pointer type. Finally, the base type of the declaration says that `r` is a reference to a pointer to an `int`.
 
 ---
+---
+### References to `const`
+__Reference to `const`__ is a reference that refers to a const, which cannot be used to change the object to which the reference is bound. However, it says nothing about whether the underlying object itself is const.
+```cpp
+int i = 1;
+int &r1 = i;       // r1 bound to i
+const int &r2 = i; // r2 also bound to i; but cannot be used to change i
+r1 = 0;            // r1 is not const; i is now 0
+r2 = 0;            // error: r2 is a reference to const
+```
+
+
+---
+### Pointers to `const`
+Like __Reference to `const`__, __pointer to `const`__ is a pointer that refers to a const, which cannot be used to change the object to which the pointer points. It also says nothing about whether the underlying object itself is const.
+```cpp
+const double pi = 3.14;   // pi is const; its value may not be changed
+double *ptr = &pi;        // error: ptr is a plain pointer
+const double *cptr = &pi; // ok: cptr may point to a double that is const
+*cptr = 42;               // error: cannot assign to *cptr
+
+double dval = 3.14;       // dval is a double; its value can be changed
+cptr = &dval;             // ok: but can’t change dval through cptr
+```
+
+--- 
+### `const` Pointers
+Like any other const object, a const pointer must be initialized, and once initialized, its value (i.e., the address that it holds) may not be changed.
+```cpp
+int errNumb = 0;
+int *const curErr = &errNumb;  // curErr will always point to errNumb
+const double pi = 3.14159;
+const double *const pip = &pi; // pip is a const pointer to a const object
+```
+Again, a pointer is itself const says nothing about whether we can use the pointer to change the underlying object. Whether we can change that object depends entirely on the type to which the pointer points.
+```cpp
+int i = 1;
+int *const p1 = &i;
+*p1 = 2;   // ok
+```
+
+---
