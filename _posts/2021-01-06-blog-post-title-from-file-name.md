@@ -1,4 +1,4 @@
-## C++ Basics [01]: References and Pointers
+## C++ Basics [01]: References and Pointers Concepts
 
 ### References
 A reference is not an object. Instead, it defines an alternative name for an object. When we define a reference, instead of copying the initializer's value, we **bind** the reference to its initialiizer. A reference is defined by writing a declarator of the form `&ref`, where `ref` is the name being declared.
