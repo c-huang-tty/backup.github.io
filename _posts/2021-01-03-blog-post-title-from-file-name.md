@@ -1,1 +1,1 @@
-## Data Sharing [C++][03]: Between Threads
+## Data Sharing [C++] [03]: Between Threads
