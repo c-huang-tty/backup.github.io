@@ -160,7 +160,7 @@ Fisrt, one of the processes requests to the operating system a memory segment th
 
 Then another process can access the shared memory according to the name of the memory, just like that with the __File Mapping__. 
 
-Finally, the memory should be removed using method `shared_memory_object::remove("SHARED_MEMORY")`.
+Finally, the memory should be removed using method `shared_memory_object::remove("NAME")`.
 
 Below is a sample test code. The write process writes ‘1’s to the shared memory, and the read process prints it out. 
 
