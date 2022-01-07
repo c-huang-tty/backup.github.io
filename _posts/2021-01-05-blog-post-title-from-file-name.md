@@ -1,1 +1,1 @@
-## Data Sharing [C++][05]: Between Devices
+## Data Sharing [C++] [05]: Between Devices
