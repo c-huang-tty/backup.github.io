@@ -12,7 +12,7 @@ In the functions provided by Microsoft, one of the processes first creates a __`
 
 ![text](https://docs.microsoft.com/en-us/windows/win32/memory/images/fmap.png)
 
-The file on disk can be any file that the users want to map into memory, or it can be the system page file. Processes use __pointers__ to read from and write to the files, just as they would with dynamically allocated memory. Finally, When a process has finished with the file mapping object, it should destroy all file views in its address space by using the [UnmapViewOfFile](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-unmapviewoffile) function for each file view. Below is a sample test code. The write process write a timestamp to the file every 10 ms, and the read the timestamp and print it out. 
+The file on disk can be any file that the users want to map into memory, or it can be the system page file. Processes use __pointers__ to read from and write to the files, just as they would with dynamically allocated memory. Finally, When a process has finished with the file mapping object, it should destroy all file views in its address space by using the [UnmapViewOfFile](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-unmapviewoffile) function for each file view. Below is a sample test code. The write process writes a timestamp to the file every 10 ms, and the read process reads the timestamp and print it out. 
 
 ```cpp
 // Write Process
@@ -152,4 +152,101 @@ int main(){
 
 ---
 ### [Boost Library](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html)
+https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html
 
+Realizing shared memory using boost library is also very simple. 
+
+Fisrt, one of the processes requests to the operating system a memory segment that can be shared between processes. The propcess can create/destroy/open this memory using the [shared_memory_object](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
+
+Then another process can map the whole shared memory or just part of it. The mapping process is done using the [mapped_region](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
+
+Below is a sample test code. The write process writes '1's to the shared memory, and the read process prints it out. 
+
+```cpp
+// Write Process
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <boost/interprocess/shared_memory_object.hpp>
+#include <boost/interprocess/mapped_region.hpp>
+#include <cstring>
+#include <cstdlib>
+#include <string>
+#include <thread>
+#include <chrono>
+
+using namespace boost::interprocess;
+using namespace std;
+
+int main(){
+    cout << "P1 started" << endl;
+	
+    this_thread::sleep_for(chrono::milliseconds(10u));
+	
+    // Create a shared memory object
+    shared_memory_object shm(create_only, "MySharedMemory", read_write);
+	
+    // Set size
+    shm.truncate(100);
+	
+    // Map the whole shared memory in this process
+    mapped_region region(shm, read_write);
+	
+    // Write all the memory to 1
+    std::memset(region.get_address(), 1, region.get_size());
+	
+    cout << "P1 ended" << endl;
+	
+    return 0;
+}
+```
+
+```cpp
+// Read Process
+
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <boost/interprocess/shared_memory_object.hpp>
+#include <boost/interprocess/mapped_region.hpp>
+#include <cstring>
+#include <cstdlib>
+#include <string>
+#include <thread>
+#include <chrono>
+
+using namespace boost::interprocess;
+using namespace std;
+
+int main(){
+    cout << "P2 started" << endl;
+	
+    // Create a shared memory object
+    shared_memory_object shm(open_only, "MySharedMemory", read_only);
+	
+    //Map the whole shared memory in this process
+    mapped_region region(shm, read_only);
+	
+    const char* mem = static_cast<char*>(region.get_address());
+
+    // check the memory
+    bool isError = false;
+    for(auto i = 0u; i < region.get_size(); ++i){
+        const int data = *(mem + i);
+        printf("data %i is %d\n", i, data);
+        if (data != 1) {
+            isError = true;
+            break;
+        }
+    }
+	// Realease
+    shared_memory_object::remove("MySharedMemory");
+	
+    cout << "P2 ended" << endl;
+	
+    return 0;
+}
+```
