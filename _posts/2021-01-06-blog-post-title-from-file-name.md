@@ -26,7 +26,7 @@ Notes
 - The type of a pointer and the object to which it points to must be the same (__except__ pointers to const and classes related by interitance).
 
 ---
-### `&` and `*`
+### & and *
 ```cpp
 int i  = 1;
 int &r = i;   // & follows a type and is part of a declaration; r is a reference
@@ -79,7 +79,7 @@ The symbol closest to the name of the variable (in this case the `&` in `&r`) is
 
 ---
 ---
-### References to `const`
+### References to Const
 __Reference to `const`__ is a reference that refers to a const, which cannot be used to change the object to which the reference is bound. However, it says nothing about whether the underlying object itself is const.
 ```cpp
 int i = 1;
@@ -91,7 +91,7 @@ r2 = 0;            // error: r2 is a reference to const
 
 
 ---
-### Pointers to `const`
+### Pointers to Const
 Like __Reference to `const`__, __pointer to `const`__ is a pointer that refers to a const, which cannot be used to change the object to which the pointer points. It also says nothing about whether the underlying object itself is const.
 ```cpp
 const double pi = 3.14;   // pi is const; its value may not be changed
@@ -104,7 +104,7 @@ cptr = &dval;             // ok: but can’t change dval through cptr
 ```
 
 --- 
-### `const` Pointers
+### Const Pointers
 Like any other const object, a const pointer must be initialized, and once initialized, its value (i.e., the address that it holds) may not be changed.
 ```cpp
 int errNumb = 0;
