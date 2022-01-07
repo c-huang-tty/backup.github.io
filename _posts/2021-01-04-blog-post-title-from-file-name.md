@@ -156,7 +156,7 @@ https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenp
 
 Realizing shared memory using boost library is also very simple. 
 
-Fisrt, one of the processes requests to the operating system a memory segment that can be shared between processes. The propcess can create/destroy/open this memory using the [shared_memory_object](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
+Fisrt, one of the processes requests to the operating system a memory segment that can be shared between processes. The propcess can create / destroy / open this memory using the [shared_memory_object](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
 
 Then another process can map the whole shared memory or just part of it. The mapping process is done using the [mapped_region](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
 
