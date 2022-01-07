@@ -158,7 +158,9 @@ Realizing shared memory using boost library is also very simple.
 
 Fisrt, one of the processes requests to the operating system a memory segment that can be shared between processes using the [shared_memory_object](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. After setting the size of the memory using `shared_memory_object.truncate(SIZE_OF_MEMORY)`. The process can map the whole shared memory or just part of it. The mapping process is done using the [mapped_region](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
 
-Then another process can access the shared memory according to the name of the memory, just like that with the __File Mapping__. Finally, the memory should be removed using method `shared_memory_object::remove("MY_SHARED_MEMORY")`.
+Then another process can access the shared memory according to the name of the memory, just like that with the __File Mapping__. 
+
+Finally, the memory should be removed using method `shared_memory_object::remove("MY_SHARED_MEMORY")`.
 
 Below is a sample test code. The write process writes ‘1’s to the shared memory, and the read process prints it out. 
 
