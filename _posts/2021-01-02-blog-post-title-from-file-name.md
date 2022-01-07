@@ -1,6 +1,6 @@
 ## Data Sharing [C++] [02]: Between Files
 
-Code in this post can be found in this folder [DataSharingBetweenFiles](https://github.com/c-huang-tty/c-huang-tty.github.io/tree/main/code/cpp/DataSharing/DataSharingBetweenFiles)
+Codes in this post can be found in this folder [DataSharingBetweenFiles](https://github.com/c-huang-tty/c-huang-tty.github.io/tree/main/code/cpp/DataSharing/DataSharingBetweenFiles).
 
 ### extern
 To share data between different files within a project, the most common way to apply the `extern` declaration to global variables. 
