@@ -10,7 +10,7 @@ ref = 2; // same as refVal = 2
 Notes  
 
 - As a reference is not an object, we can't define a reference to a reference.
-- The type of a reference and the object to which it refers to must be the same.
+- The type of a reference and the object to which it refers to must be the same (__except__ references to const and classes related by interitance).
 - A reference may be bound only to an object, not to a literal or to the result of a more general expression.
 
 ---
@@ -23,7 +23,7 @@ int *ptr = &ptrVal;
 Notes  
 
 - As a reference is not an object, we can't define a pointer to a reference.
-- The type of a pointer and the object to which it points to must be the same.
+- The type of a pointer and the object to which it points to must be the same (__except__ pointers to const and classes related by interitance).
 
 ---
 ### `&` and `*`
