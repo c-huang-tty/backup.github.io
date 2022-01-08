@@ -8,7 +8,7 @@ Inter Process Communication (IPC) refers to a mechanism, where the operating sys
 ### [File Mapping](https://docs.microsoft.com/en-us/windows/win32/memory/file-mapping)
 https://docs.microsoft.com/en-us/windows/win32/memory/file-mapping
 
-In the functions provided by Microsoft, one of the processes first creates a __`File Mapping Object`__ in the physical memory using [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) function. Then another process can open the file mapping using [OpenFileMappingA](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) function and and create a __`File View`__ in virtual memory to access the file's contents using [MapViewOfFile](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile) function. 
+In the functions provided by Microsoft, process 1 first creates a __`File Mapping Object`__ in the physical memory using [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) function. Then process 2 can open the file mapping using [OpenFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) function and and create a __`File View`__ in virtual memory to access the file's contents using [MapViewOfFile](https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile) function. 
 
 ![text](https://docs.microsoft.com/en-us/windows/win32/memory/images/fmap.png)
 
@@ -150,15 +150,18 @@ int main(){
 }
 ```
 
+#### Fallible Points
+
+
 ---
 ### [Boost Library](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html)
 https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html
 
 Realizing shared memory using boost library is also very simple. 
 
-Fisrt, one of the processes requests to the operating system a memory segment that can be shared between processes using the [shared_memory_object](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. After setting the size of the memory using `shared_memory_object.truncate(SIZE_OF_MEMORY)`. The process can map the whole shared memory or just part of it. The mapping process is done using the [mapped_region](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
+Fisrt, process 1 requests to the operating system a memory segment that can be shared between processes using the [shared_memory_object](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. After setting the size of the memory using `shared_memory_object.truncate(SIZE_OF_MEMORY)`. The process can map the whole shared memory or just part of it. The mapping process is done using the [mapped_region](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html#interprocess.sharedmemorybetweenprocesses.sharedmemory.shared_memory_creating_shared_memory_segments) `class`. 
 
-Then another process can access the shared memory according to the name of the memory, just like that with the __File Mapping__. 
+Then process 2 can access the shared memory according to the name of the memory, just like that with the __File Mapping__. 
 
 Finally, the memory should be removed using method `shared_memory_object::remove("NAME")`.
 
