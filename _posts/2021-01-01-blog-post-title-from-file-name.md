@@ -42,7 +42,7 @@ To solve this problem, two simple methods are available. We can either define a 
 
 ---
 ### namespace
-Here I declared a `namespace` named `g`, again, the `cout` result would be `1` and `0` respectively.
+Here I defined a `namespace` named `g`, again, the `cout` result would be `1` and `0` respectively.
 ```cpp
 namespace g{
     int globalVariable = 0;
