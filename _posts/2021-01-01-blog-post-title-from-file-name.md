@@ -3,7 +3,7 @@
 Codes in this post can be found in [DataSharingBetweenFunctions.cpp](https://github.com/c-huang-tty/c-huang-tty.github.io/blob/main/code/cpp/DataSharing/DataSharingBetweenFunctions.cpp?ts=4).
 
 ### global variable
-The simplest way to share data between different functions within a file is to simply declare `global variables` on top of the program.
+The simplest way to share data between different functions within a file is to simply declare __global variables__ on top of the program.
 
 For example, if I define a global variable named `globalVariable` and two functions named `funtion1` and `function2` and call them in the `main` function, the `cout` result would be `1` and `0` respectively. 
 ```cpp
@@ -27,7 +27,7 @@ int main() {
 }
 ```
 
-However, there is a problem here. When I define a `local variable` with the same name as the `global variable`, the `global variable` will be overridden by the `local variable`. For example, if I define the `globalVariable` again in the `main` function and then call `funtion1` and `function2`, the `cout` result would be `2` and `2` respectively. 
+However, there is a problem here. When I define a __local variable__ with the same name as the __global variable__, the __global variable__ will be overridden by the __local variable__. For example, if I define the `globalVariable` again in the `main` function and then call `funtion1` and `function2`, the `cout` result would be `2` and `2` respectively. 
 ```cpp
 int main () {
     int globalVariable = 2;
