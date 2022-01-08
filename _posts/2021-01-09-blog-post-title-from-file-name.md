@@ -97,5 +97,6 @@ The move function really does very little work. All move does is accept either a
 template <class T> 
 typename remove_reference<T>::type&& move(T&& a){ return a; }
 ```
+Template will be summarized in the later posts.
 
 ---
