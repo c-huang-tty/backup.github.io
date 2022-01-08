@@ -151,7 +151,60 @@ int main(){
 ```
 
 #### Fallible Points
+One thing needs to mention is that on different platforms, definitiona of the functions [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) and [OpenFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) are a bit different. They are difined in header files `memoryapi.h` and `winbase.h` respectively.
 
+In `memoryapi.h`, [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) and [OpenFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) are defined as follows.
+```cpp
+CreateFileMappingW(
+    _In_ HANDLE hFile,
+    _In_opt_ LPSECURITY_ATTRIBUTES lpFileMappingAttributes,
+    _In_ DWORD flProtect,
+    _In_ DWORD dwMaximumSizeHigh,
+    _In_ DWORD dwMaximumSizeLow,
+    _In_opt_ LPCWSTR lpName
+    );
+
+#ifdef UNICODE
+#define CreateFileMapping  CreateFileMappingW
+#endif
+
+OpenFileMappingW(
+    _In_ DWORD dwDesiredAccess,
+    _In_ BOOL bInheritHandle,
+    _In_ LPCWSTR lpName
+    );
+
+#ifdef UNICODE
+#define OpenFileMapping  OpenFileMappingW
+#endif
+```
+
+In `winbase.h`, [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) and [OpenFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) are defined as follows.
+```cpp
+CreateFileMappingA(
+    _In_     HANDLE hFile,
+    _In_opt_ LPSECURITY_ATTRIBUTES lpFileMappingAttributes,
+    _In_     DWORD flProtect,
+    _In_     DWORD dwMaximumSizeHigh,
+    _In_     DWORD dwMaximumSizeLow,
+    _In_opt_ LPCSTR lpName
+    );
+    
+#ifndef UNICODE
+#define CreateFileMapping  CreateFileMappingA
+#endif
+
+OpenFileMappingA(
+    _In_ DWORD dwDesiredAccess,
+    _In_ BOOL bInheritHandle,
+    _In_ LPCSTR lpName
+    );
+    
+#ifndef UNICODE
+#define OpenFileMapping  OpenFileMappingA
+#endif
+```
+The main difference is that in `memoryapi.h`, the data type of the name of the shared memory is __LPCWSTR__; in `winbase.h`, the data type of the name of the shared memory is __LPCSTR__. When different functions are used in two processes, the memory cannot be shared. Therefore, a good practice is to use the name __OpenFileMappingW__/ __OpenFileMappingA__ and __CreateFileMappingW__/__CreateFileMappingA__ directly, so as to avoid bugs that are difficult to find.
 
 ---
 ### [Boost Library](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html)
