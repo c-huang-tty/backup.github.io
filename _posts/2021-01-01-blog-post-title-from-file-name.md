@@ -117,7 +117,20 @@ int main() {
    return 0;
 }
 ```
+Another usage of `static` is to define the static variable within a function. The variable is initialized before the first time execution, it is not destroyed when a function ends, instead it is destroyed when the program terminates. Below is a simple example, the `cout` result would be `0` and `1` respectively.   
+```cpp
+int function() {
+    static int stepCount = 0;
+    return stepCount++;
+}
+int main(){
+    cout << function() << endl;
+    cout << function() << endl;
+}
 
-[//]: <> (Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.)
+```
 
 ---
+[//]: <> (Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.)
+
+
