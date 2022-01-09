@@ -151,7 +151,7 @@ int main(){
 ```
 
 #### Fallible Points
-One thing needs to mention is that on different platforms, definitiona of the functions [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) and [OpenFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) are a bit different. They are difined in header files `memoryapi.h` and `winbase.h` respectively.
+One thing needs to mention is that on different platforms, [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) and [OpenFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) are defined a bit different. They are difined in header files `memoryapi.h` and `winbase.h` respectively.
 
 In `memoryapi.h`, [CreateFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga) and [OpenFileMapping](https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-openfilemappinga) are defined as follows.
 ```cpp
