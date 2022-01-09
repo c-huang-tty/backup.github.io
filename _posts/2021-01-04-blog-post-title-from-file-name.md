@@ -204,7 +204,7 @@ OpenFileMappingA(
 #define OpenFileMapping  OpenFileMappingA
 #endif
 ```
-The main difference is that in `memoryapi.h`, the data type of the name of the shared memory is __LPCWSTR__; in `winbase.h`, the data type of the name of the shared memory is __LPCSTR__. When different functions are used in two processes, the memory cannot be shared. Therefore, a good practice is to use the name __OpenFileMappingW__/ __OpenFileMappingA__ and __CreateFileMappingW__/__CreateFileMappingA__ directly, so as to avoid bugs that are difficult to find.
+The main difference is that in `memoryapi.h`, the data type of the name of the shared memory is __LPCWSTR__; in `winbase.h`, the data type of the name of the shared memory is __LPCSTR__. When different functions are used in two processes, the memory cannot be shared. Therefore, a good practice is to use the name __OpenFileMappingW__ / __OpenFileMappingA__ and __CreateFileMappingW__ / __CreateFileMappingA__ directly, so as to avoid bugs that are difficult to find.
 
 ---
 ### [Boost Library](https://www.boost.org/doc/libs/1_55_0/doc/html/interprocess/sharedmemorybetweenprocesses.html)
