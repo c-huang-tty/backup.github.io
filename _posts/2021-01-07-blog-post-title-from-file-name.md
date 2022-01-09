@@ -133,6 +133,8 @@ int ia[] = {0,1,2,3,4,5,6,7,8,9}; // ia is an array of ten ints
 int *beg = begin(ia);             // pointer to the first element in ia
 int *last = end(ia);              // pointer one past the last element in ia
 ```
+
+### Multideimensional Arrays
  Multidimensional array is a little different. Because a multidimensional array is really an array of arrays, the pointer type to which the array converts is a pointer to the first inner array. 
  ```cpp
  int ia[3][3] = {1,2,3,4,5,6,7,8,9};
@@ -148,5 +150,14 @@ int *last = end(ia);              // pointer one past the last element in ia
  auto p = ia;  // p points to an array of 3 ints
  cout<< **p;   // this will print out 1
  ```
+ 
+#### Fallible Points
+It is important to note the difference below, which is fallible when we want to loop the arrays.
+```cpp
+int &arr[10]       // error: declares arr as an array of references
+int (&arr)[10]     // ok: arr is a reference to an array of ten ints
+int *arr[10];      // ok: array of ten pointers of int
+int (*arr)[10];    // ok: pointer to an array of ten ints
+```
  
 ---
