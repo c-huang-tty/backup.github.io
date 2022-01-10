@@ -31,7 +31,7 @@ titles_from_headings:
   collections: true
 
 kramdown:
-  input: kramdown
+  input: GFM
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     default_lang: cpp
