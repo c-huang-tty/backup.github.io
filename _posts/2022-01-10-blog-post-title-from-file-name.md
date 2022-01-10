@@ -1,7 +1,7 @@
 ## C++ Basics [04]: Function Basics
 
 ### Arguments Passing
-Parameter initialization works the same way as variable initialization. If the parameter is a reference, then the parameter is bound to its argument. Otherwise, the argument’s value is copied. Some examples about passing and returning pointers and references to and from functions have been discussed in the post [Passing and Returning References and Pointers](https://c-huang-tty.github.io/2021/01/08/blog-post-title-from-file-name.html). Here I will summarize some practical aspects about argument passing mentioned in [C++ Primier (5th Edition)](https://www.oreilly.com/library/view/c-primer-fifth/9780133053043/).
+Parameter initialization works the same way as variable initialization. If the parameter is a reference, then the parameter is bound to its argument. Otherwise, the argument’s value is copied. Some examples about passing and returning pointers and references to and from functions have been discussed in the post [Passing and Returning References and Pointers](https://c-huang-tty.github.io/2022/01/08/blog-post-title-from-file-name.html). Here I will summarize some practical aspects about argument passing mentioned in [C++ Primier (5th Edition)](https://www.oreilly.com/library/view/c-primer-fifth/9780133053043/).
 
 
 #### Passing Arguments by References
