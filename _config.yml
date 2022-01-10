@@ -21,12 +21,6 @@ linkedin_username: "Chao Huang"
 theme: "minima"
 
 rss: rss
-
-kramdown:
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    default_lang: cpp
-    disable: true
     
 plugins:
   - jekyll-feed
@@ -35,6 +29,15 @@ plugins:
 titles_from_headings:
   strip_title: true
   collections: true
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: cpp
+    line_numbers: table
+
+
 
 defaults:
   - scope:
