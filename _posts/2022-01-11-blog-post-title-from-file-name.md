@@ -1,4 +1,4 @@
-## Inline and Constexpr Functions
+## C++ Basics [05]: Inline and Constexpr Functions
 
 Defining a function makes the code easier to read and understand. However, one potential drawback to make a function is that calling a function is apt to be slower than evaluating the equivalent expressions. On most machines, a function call does a lot of work:
 - Registers are saved before the call and restored after the return;
