@@ -138,7 +138,7 @@ int *last = end(ia);              // pointer one past the last element in ia
  Multidimensional array is a little different. Because a multidimensional array is really an array of arrays, the pointer type to which the array converts is a pointer to the first inner array. 
  ```cpp
  int ia[3][3] = {1,2,3,4,5,6,7,8,9};
- int *p = ia;      // error: cannot convert ‘int (*)[3]’ to ‘int*’ in initialization
+ int *p = ia;      // error: cannot convert 'int (*)[3]' to 'int*' in initialization
  int (*p)[3] = ia; // p points to an array of 3 ints
  cout << **p;      // this will print out 1
  p = &ia[2];       // p points now to the last row of ia
