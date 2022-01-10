@@ -194,7 +194,7 @@ int main() {
 ```
 
 #### Reference Returns Are Lvalues
-Whether a function call is an lvalue depends on the return type of the function. As the example given in the post [Rvalue and Rvalue References](https://c-huang-tty.github.io/2021/01/09/blog-post-title-from-file-name.html), calls to functions that return references are lvalues. And a call to a function that returns a reference can be used in the same ways as any other lvalue.
+Whether a function call is an lvalue depends on the return type of the function. As the example given in the post [Rvalue and Rvalue References](https://c-huang-tty.github.io/2022/01/09/blog-post-title-from-file-name.html), calls to functions that return references are lvalues. And a call to a function that returns a reference can be used in the same ways as any other lvalue.
 
 In the following example, `function(localVariable)` can be used as an `lvalue` and `*ptr` before and after the function call would be `0` and `1` respectively.
 ```cpp
