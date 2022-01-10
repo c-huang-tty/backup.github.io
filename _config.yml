@@ -23,11 +23,9 @@ theme: "minima"
 rss: rss
 
 kramdown:
-  syntax_highlighter: rouge
-  input: GFM
   syntax_highlighter_opts:
     default_lang: cpp
-    disable: false
+    disable: true
     
 plugins:
   - jekyll-feed
