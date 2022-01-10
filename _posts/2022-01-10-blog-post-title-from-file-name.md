@@ -74,7 +74,7 @@ int main(){
     cout << "sum is: " << sum << " " << "diff is: " << diff << endl;
 }
 ```
-The result is `error: cannot bind non-const lvalue reference of type ‘int&’ to an rvalue of type ‘int’`. As `3` and `4` are `rvalues`, we cannoy assign it to `lvalues` like `a` and `b`. We should call the function like below, which will print the same results.
+The result is `error: cannot bind non-const lvalue reference of type 'int&' to an rvalue of type 'int'`. As `3` and `4` are `rvalues`, we cannot assign it to `lvalues` like `a` and `b`. We should call the function like below, which will print the same results.
 ```cpp
 int a = 3, b = 4, sum, diff;
 SumDiff(a,b,sum,diff);
