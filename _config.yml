@@ -35,7 +35,7 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     default_lang: cpp
-    line_numbers: table
+    line_numbers: true
 
 
 
