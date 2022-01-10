@@ -32,7 +32,7 @@ titles_from_headings:
 
 kramdown:
   input: kramdown
-  syntax_highlighter: coderay
+  syntax_highlighter: rouge
   syntax_highlighter_opts:
     default_lang: cpp
 
