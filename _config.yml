@@ -25,6 +25,8 @@ rss: rss
 kramdown:
   syntax_highlighter: rouge
   input: GFM
+  syntax_highlighter_opts:
+    disable: false
     
 plugins:
   - jekyll-feed
